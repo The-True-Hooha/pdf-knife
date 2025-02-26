@@ -1,20 +1,19 @@
-import * as React from 'react';
-import {browser} from 'webextension-polyfill-ts';
-import './styles.scss';
+import * as React from "react";
+import { browser } from "webextension-polyfill-ts";
+import "./styles.scss";
 
 const DEFAULT_SETTINGS = {
-  downloadPath: '',
+  downloadPath: "",
   autoRename: true,
-  conflictAction: 'uniquify',
+  conflictAction: "uniquify",
   showNotifications: true,
-  exclusionDomains: '',
+  exclusionDomains: "",
 };
 
 const Options: React.FC = () => {
   const [settings, setSettings] = React.useState(DEFAULT_SETTINGS);
   const [saved, setSaved] = React.useState(false);
   const saveTimeout = React.useRef<NodeJS.Timeout | null>(null);
-
 
   const loadSettings = async () => {
     try {
@@ -27,21 +26,18 @@ const Options: React.FC = () => {
     }
   };
 
-  
   React.useEffect(() => {
     loadSettings();
   }, []);
-
-  
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
-    const {name, value, type} = e.target;
+    const { name, value, type } = e.target;
     const newValue =
-      type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
+      type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
 
     setSettings((prev) => ({
       ...prev,
@@ -55,7 +51,7 @@ const Options: React.FC = () => {
     e.preventDefault();
 
     try {
-      await browser.storage.local.set({settings});
+      await browser.storage.local.set({ settings });
       setSaved(true);
 
       if (saveTimeout.current) {
@@ -66,7 +62,7 @@ const Options: React.FC = () => {
         setSaved(false);
       }, 2000);
     } catch (error) {
-      console.error('Failed to save settings:', error);
+      console.error("Failed to save settings:", error);
     }
   };
 
@@ -116,7 +112,7 @@ const Options: React.FC = () => {
             <button
               type="button"
               className="path-example-button"
-              onClick={() => setSettings({...settings, downloadPath: 'PDFs'})}
+              onClick={() => setSettings({ ...settings, downloadPath: "PDFs" })}
             >
               PDFs
             </button>
@@ -124,7 +120,7 @@ const Options: React.FC = () => {
               type="button"
               className="path-example-button"
               onClick={() =>
-                setSettings({...settings, downloadPath: 'Documents/Research'})
+                setSettings({ ...settings, downloadPath: "Documents/Research" })
               }
             >
               Documents/Research
@@ -132,7 +128,7 @@ const Options: React.FC = () => {
             <button
               type="button"
               className="path-example-button"
-              onClick={() => setSettings({...settings, downloadPath: ''})}
+              onClick={() => setSettings({ ...settings, downloadPath: "" })}
             >
               Default
             </button>
@@ -197,7 +193,7 @@ const Options: React.FC = () => {
         </div>
 
         <div className="actions">
-          <div className={`save-status ${saved ? 'visible' : ''}`}>
+          <div className={`save-status ${saved ? "visible" : ""}`}>
             Settings saved!
           </div>
           <button type="submit" className="save-button">
