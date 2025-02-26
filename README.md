@@ -1,184 +1,106 @@
-<h1 align="center">🚀 web-extension-starter</h1>
-<p align="center">Web Extension starter to build "Write Once Run on Any Browser" extension</p>
-<div align="center">
-  <a href="https://travis-ci.com/abhijithvijayan/web-extension-starter">
-    <img src="https://travis-ci.com/abhijithvijayan/web-extension-starter.svg?branch=react-typescript" alt="Travis Build" />
-  </a>
-  </a>
-  <a href="https://david-dm.org/abhijithvijayan/web-extension-starter">
-    <img src="https://img.shields.io/david/abhijithvijayan/web-extension-starter.svg?colorB=orange" alt="DEPENDENCIES" />
-  </a>
-  <a href="https://github.com/abhijithvijayan/web-extension-starter/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/abhijithvijayan/web-extension-starter.svg" alt="LICENSE" />
-  </a>
-  <a href="https://twitter.com/intent/tweet?text=Check%20out%20web-extension-starter%21%20by%20%40_abhijithv%0A%0AWeb%20Extension%20starter%20to%20build%20%22Write%20Once%20Run%20on%20Any%20Browser%22%20extension.%20https%3A%2F%2Fgithub.com%2Fabhijithvijayan%2Fweb-extension-starter%0A%0A%23javascript%20%23react%20%23typescript%20%23sass%20%23webextension%20%23chrome%20%23firefox%20%23opera">
-     <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="TWEET" />
-  </a>
-</div>
-<h3 align="center">🙋‍♂️ Made by <a href="https://twitter.com/_abhijithv">@abhijithvijayan</a></h3>
-<p align="center">
-  Donate:
-  <a href="https://www.paypal.me/iamabhijithvijayan" target='_blank'><i><b>PayPal</b></i></a>,
-  <a href="https://www.patreon.com/abhijithvijayan" target='_blank'><i><b>Patreon</b></i></a>
-</p>
-<p align="center">
-  <a href='https://www.buymeacoffee.com/abhijithvijayan' target='_blank'>
-    <img height='36' style='border:0px;height:36px;' src='https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png' border='0' alt='Buy Me a Coffee' />
-  </a>
-</p>
-<hr />
+# PDF Knife
 
-❤️ it? ⭐️ it on [GitHub](https://github.com/abhijithvijayan/web-extension-starter) or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20web-extension-starter%21%20by%20%40_abhijithv%0A%0AWeb%20Extension%20starter%20to%20build%20%22Write%20Once%20Run%20on%20Any%20Browser%22%20extension.%20https%3A%2F%2Fgithub.com%2Fabhijithvijayan%2Fweb-extension-starter%0A%0A%23javascript%20%23react%20%23typescript%20%23sass%20%23webextension%20%23chrome%20%23firefox%20%23opera) about it.
+PDF Knife is a lightweight browser extension that automatically detects and downloads PDF files that are opened in your browser. No more manual right-clicking and saving PDFs - PDF Knife does it for you!
 
-🧙‍♂️ **React + TypeScript** = [This](https://github.com/abhijithvijayan/web-extension-starter/tree/react-typescript) branch
-
-😨 **React + JavaScript** = Checkout [react-javascript](https://github.com/abhijithvijayan/web-extension-starter/tree/react-javascript) branch
-
-👶🏼 **HTML + JavaScript** = Checkout [master](https://github.com/abhijithvijayan/web-extension-starter/tree/master) branch
+![PDF Knife Logo](source/assets/icons/favicon-48.png)
 
 ## Features
 
-- Cross Browser Support (Web-Extensions API)
-- Browser Tailored Manifest generation
-- Automatic build on code changes
-- Auto packs browser specific build files
-- SASS styling
-- TypeScript by default
-- ES6 modules support
-- React UI Library by default
-- Smart reload
+- Automatically download PDFs when they're opened in your browser
+- Manual download button for PDFs embedded in custom viewers
+- Works with multiple PDF viewing contexts (native browser viewer, Google Drive, custom viewers)
+- Exclude specific domains from auto-downloading
+- Customize download location within your Downloads folder
+- Set conflict handling preferences (unique name, overwrite, prompt)
+- Right-click context menu for PDF links
+- Auto-rename PDFs using document title
 
-## Browser Support
+## Installation
 
-| [![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](/) | [![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](/) | [![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png)](/) | [![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](/) | [![Yandex](https://raw.github.com/alrra/browser-logos/master/src/yandex/yandex_48x48.png)](/) | [![Brave](https://raw.github.com/alrra/browser-logos/master/src/brave/brave_48x48.png)](/) | [![vivaldi](https://raw.github.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png)](/) |
-| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| 49 & later ✔                                                                                  | 52 & later ✔                                                                                     | 36 & later ✔                                                                               | 79 & later ✔                                                                            | Latest ✔                                                                                      | Latest ✔                                                                                   | Latest ✔                                                                                         |
+### Chrome Web Store (Recommended)
 
-## Used by extensions in production that has over 100,000+ users.
+1. Visit the [Chrome Web Store](https://chrome.google.com/webstore) and search for "PDF Knife"
+2. Click "Add to Chrome"
+3. Confirm the installation
 
-- [daily.dev](https://daily.dev) in [daily.dev extension](https://r.daily.dev/get)
-- [Jiffy Reader](https://chrome.google.com/webstore/detail/jiffy-reader/lljedihjnnjjefafchaljkhbpfhfkdic) in [ansh/jiffyreader.com](https://github.com/ansh/jiffyreader.com)
-- [kutt-extension](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd) in [abhijithvijayan/kutt-extension](https://github.com/abhijithvijayan/kutt-extension)
-- [doubanIMDb](https://chrome.google.com/webstore/detail/doubanimdb/nfibbjnhkbjlgjaojglmmibdjicidini) in [lisongx/doubanIMDb](https://github.com/lisongx/doubanIMDb)
-- [Mooc Assistant](https://chrome.google.com/webstore/detail/mooc-assistant/oebggekgendmoeedkkdkdcdbmfbfeldc) in [unbyte/mooc-assistant](https://github.com/unbyte/mooc-assistant)
-- ArtiPub in [crawlab-team/artipub](https://github.com/crawlab-team/artipub/tree/master/extensions)
+### Manual Installation (Chrome, Edge, Brave, etc.)
 
-and many more...
+1. Download the latest release ZIP file from [Releases](https://github.com/The-True-Hooha/pdf-knife/releases)
+2. Extract the ZIP file to a folder on your computer
+3. Open your browser and navigate to `chrome://extensions/`
+4. Enable "Developer mode" using the toggle in the top-right corner
+5. Click "Load unpacked" and select the extracted folder
+6. PDF Knife will now be installed and appear in your extensions
 
-## Use this template
+### Manual Installation (Firefox)
 
-Create a new directory and run
+1. Download the latest `.xpi` file from [Releases](https://github.com/The-True-Hooha/pdf-knife/releases)
+2. In Firefox, open the Add-ons Manager (`about:addons`)
+3. Click the gear icon and select "Install Add-on From File..."
+4. Navigate to and select the downloaded `.xpi` file
+5. Click "Add" when prompted
 
-```
-curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/react-typescript.tar.gz | tar -xz --strip-components=1
-```
+## Usage
 
-## 🚀 Quick Start
+### Automatic Downloads
 
-Ensure you have
+Once installed, PDF Knife will automatically download any PDF that opens directly in your browser. Look for a notification when a PDF is downloaded (if enabled in settings).
 
-- [Node.js](https://nodejs.org) 10 or later installed
+### Manual Downloads
 
-Then run the following:
+For PDFs displayed in custom viewers or embedded in websites (like archive.org):
 
-- `npm install` to install dependencies.
-- `npm run dev:chrome` to start the development server for chrome extension
-- `npm run dev:firefox` to start the development server for firefox addon
-- `npm run dev:opera` to start the development server for opera extension
-- `npm run build:chrome` to build chrome extension
-- `npm run build:firefox` to build firefox addon
-- `npm run build:opera` to build opera extension
-- `npm run build` builds and packs extensions all at once to extension/ directory
+1. Click the PDF Knife icon in your toolbar
+2. Click the "Download Current PDF" button
 
-### Development
+### Context Menu
 
-- `npm install` to install dependencies.
-- To watch file changes in development
+Right-click on any link to a PDF file to see the "Download PDF with PDF Knife" option.
 
-  - Chrome
-    - `npm run dev:chrome`
-  - Firefox
-    - `npm run dev:firefox`
-  - Opera
-    - `npm run dev:opera`
+## Settings
 
-- **Load extension in browser**
+Access settings by clicking the PDF Knife icon and then clicking "Settings":
 
-- ### Chrome
+- **Download Location**: Customize where PDFs are saved relative to your Downloads folder
+- **Auto-rename files**: Use the document title as the filename
+- **File conflict handling**: Choose how to handle duplicate filenames
+- **Notifications**: Toggle download notifications
+- **Domain exclusions**: Specify websites where PDF Knife should not auto-download
 
-  - Go to the browser address bar and type `chrome://extensions`
-  - Check the `Developer Mode` button to enable it.
-  - Click on the `Load Unpacked Extension…` button.
-  - Select your browsers folder in `extension/`.
+## Permissions Explained
 
-- ### Firefox
+PDF Knife requires the following permissions:
 
-  - Load the Add-on via `about:debugging` as temporary Add-on.
-  - Choose the `manifest.json` file in the extracted directory
+- **Storage**: To save your settings and preferences
+- **Downloads**: To download PDFs
+- **ActiveTab**: To access the current page for PDF detection
+- **Notifications**: To show download notifications
+- **Context Menus**: For the right-click download option
 
-- ### Opera
+## Privacy
 
-  - Load the extension via `opera:extensions`
-  - Check the `Developer Mode` and load as unpacked from extension’s extracted directory.
+PDF Knife operates entirely within your browser. No data is sent to external servers, and no browsing activity is tracked.
 
-### Production
+## Troubleshooting
 
-- `npm run build` builds the extension for all the browsers to `extension/BROWSER` directory respectively.
+If PDFs aren't downloading automatically:
 
-Note: By default the `manifest.json` is set with version `0.0.0`. The webpack loader will update the version in the build with that of the `package.json` version. In order to release a new version, update version in `package.json` and run script.
+1. Make sure PDF Knife is enabled (click the toolbar icon to check)
+2. Check if the website is in your exclusion list
+3. Some highly customized PDF viewers may not be detected automatically - use the manual download button
 
-If you don't want to use `package.json` version, you can disable the option [here](https://github.com/abhijithvijayan/web-extension-starter/blob/e10158c4a49948dea9fdca06592876d9ca04e028/webpack.config.js#L79).
+## Contributing
 
-### Generating browser specific manifest.json
-
-Update `source/manifest.json` file with browser vendor prefixed manifest keys
-
-```js
-{
-  "__chrome__name": "SuperChrome",
-  "__firefox__name": "SuperFox",
-  "__edge__name": "SuperEdge",
-  "__opera__name": "SuperOpera"
-}
-```
-
-if the vendor is `chrome` this compiles to:
-
-```js
-{
-  "name": "SuperChrome",
-}
-```
-
----
-
-Add keys to multiple vendors by separating them with | in the prefix
-
-```
-{
-  __chrome|opera__name: "SuperBlink"
-}
-```
-
-if the vendor is `chrome` or `opera`, this compiles to:
-
-```
-{
-  "name": "SuperBlink"
-}
-```
-
-See the original [README](https://github.com/abhijithvijayan/wext-manifest-loader) of `wext-manifest-loader` package for more details
-
-## Bugs
-
-Please file an issue [here](https://github.com/abhijithvijayan/web-extension-starter/issues/new) for bugs, missing documentation, or unexpected behavior.
-
-### Linting & TypeScript Config
-
-- Shared Eslint & Prettier Configuration - [`@abhijithvijayan/eslint-config`](https://www.npmjs.com/package/@abhijithvijayan/eslint-config)
-- Shared TypeScript Configuration - [`@abhijithvijayan/tsconfig`](https://www.npmjs.com/package/@abhijithvijayan/tsconfig)
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-MIT © [Abhijith Vijayan](https://abhijithvijayan.in)
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+If you encounter any issues or have questions, please [open an issue](https://github.com/The-True-Hooha/pdf-knife/issues) or contact <davidhero125@gmail.com>.
+
+---
+
+Made with ❤️ for PDF enthusiasts everywhere.
