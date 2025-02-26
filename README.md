@@ -99,7 +99,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Support
 
-If you encounter any issues or have questions, please [open an issue](https://github.com/The-True-Hooha/pdf-knife/issues) or contact <davidhero125@gmail.com>.
+If you encounter any issues or have questions, please [open an issue](https://github.com/The-True-Hooha/pdf-knife/issues) or reach out <davidhero125@gmail.com>.
 
 ---
 
