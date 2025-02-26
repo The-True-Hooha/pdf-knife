@@ -153,4 +153,27 @@ body {
       }
     }
   }
+
+  .download-button {
+  width: 100%;
+  background: #4CAF50;
+  color: white;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  margin: 8px 0;
+  font-size: 14px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  
+  &:hover {
+    background: #45a049;
+  }
+  
+  &:active {
+    transform: translateY(1px);
+  }
+}
 }

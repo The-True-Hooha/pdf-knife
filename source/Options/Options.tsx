@@ -1,14 +1,13 @@
-import * as React from "react";
-import { browser } from "webextension-polyfill-ts";
-import "./styles.scss";
+import * as React from 'react';
+import {browser} from 'webextension-polyfill-ts';
+import './styles.scss';
 
-// Default settings
 const DEFAULT_SETTINGS = {
-  downloadPath: "",
+  downloadPath: '',
   autoRename: true,
-  conflictAction: "uniquify",
+  conflictAction: 'uniquify',
   showNotifications: true,
-  exclusionDomains: "",
+  exclusionDomains: '',
 };
 
 const Options: React.FC = () => {
@@ -16,10 +15,6 @@ const Options: React.FC = () => {
   const [saved, setSaved] = React.useState(false);
   const saveTimeout = React.useRef<NodeJS.Timeout | null>(null);
 
-  // Load settings on component mount
-  React.useEffect(() => {
-    loadSettings();
-  }, []);
 
   const loadSettings = async () => {
     try {
@@ -32,21 +27,27 @@ const Options: React.FC = () => {
     }
   };
 
+  
+  React.useEffect(() => {
+    loadSettings();
+  }, []);
+
+  
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
-    const { name, value, type } = e.target;
+    const {name, value, type} = e.target;
     const newValue =
-      type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
+      type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
 
     setSettings((prev) => ({
       ...prev,
       [name]: newValue,
     }));
 
-    // Clear "Saved" message when user makes changes
     setSaved(false);
   };
 
@@ -54,9 +55,7 @@ const Options: React.FC = () => {
     e.preventDefault();
 
     try {
-      await browser.storage.local.set({ settings });
-
-      // Show saved message and clear after delay
+      await browser.storage.local.set({settings});
       setSaved(true);
 
       if (saveTimeout.current) {
@@ -67,7 +66,7 @@ const Options: React.FC = () => {
         setSaved(false);
       }, 2000);
     } catch (error) {
-      console.error("Failed to save settings:", error);
+      console.error('Failed to save settings:', error);
     }
   };
 
@@ -77,22 +76,71 @@ const Options: React.FC = () => {
 
       <form onSubmit={saveSettings}>
         <div className="setting-group">
-          <h2>Download Options</h2>
+          <h2>Download Location</h2>
 
-          <div className="setting-item">
-            <label htmlFor="downloadPath">Default Download Path</label>
-            <input
-              type="text"
-              id="downloadPath"
-              name="downloadPath"
-              value={settings.downloadPath}
-              onChange={handleChange}
-              placeholder="Leave empty for browser default"
-            />
-            <div className="hint">
-              Example: downloads/pdfs (relative to Downloads folder)
+          <div className="default-path-notice">
+            <div className="info-icon">ℹ️</div>
+            <div>
+              PDFs will be saved to your browser's default download folder if no
+              path is specified.
             </div>
           </div>
+
+          <div className="setting-item">
+            <label htmlFor="downloadPath">Custom Download Path</label>
+            <div className="path-input-container">
+              <input
+                type="text"
+                id="downloadPath"
+                name="downloadPath"
+                value={settings.downloadPath}
+                onChange={handleChange}
+                placeholder="e.g., PDFs or Research/Papers"
+              />
+            </div>
+            <div className="hint">
+              <ul>
+                <li>Path is relative to your browser's download folder</li>
+                <li>
+                  No leading slashes needed (e.g., "PDFs/Work" not "/PDFs/Work")
+                </li>
+                <li>
+                  New folders will be created automatically if they don't exist
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="path-examples">
+            <span className="path-examples-label">Examples:</span>
+            <button
+              type="button"
+              className="path-example-button"
+              onClick={() => setSettings({...settings, downloadPath: 'PDFs'})}
+            >
+              PDFs
+            </button>
+            <button
+              type="button"
+              className="path-example-button"
+              onClick={() =>
+                setSettings({...settings, downloadPath: 'Documents/Research'})
+              }
+            >
+              Documents/Research
+            </button>
+            <button
+              type="button"
+              className="path-example-button"
+              onClick={() => setSettings({...settings, downloadPath: ''})}
+            >
+              Default
+            </button>
+          </div>
+        </div>
+
+        <div className="setting-group">
+          <h2>Download Options</h2>
 
           <div className="setting-item checkbox">
             <label>
@@ -149,7 +197,7 @@ const Options: React.FC = () => {
         </div>
 
         <div className="actions">
-          <div className={`save-status ${saved ? "visible" : ""}`}>
+          <div className={`save-status ${saved ? 'visible' : ''}`}>
             Settings saved!
           </div>
           <button type="submit" className="save-button">
