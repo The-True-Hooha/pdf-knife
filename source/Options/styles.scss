@@ -1,0 +1,196 @@
+// styles.scss for Options page
+
+@import "../styles/fonts";
+@import "../styles/reset";
+@import "../styles/variables";
+
+:root {
+  // Light theme (default)
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa;
+  --text-primary: #212121;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --accent-color: #2196F3;
+  --accent-hover: #0b7dda;
+  --input-bg: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-color: #444444;
+    --accent-color: #2196F3;
+    --accent-hover: #42a5f5;
+    --input-bg: #333333;
+  }
+}
+
+body {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  transition: background-color 0.3s ease;
+}
+
+.options-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 24px;
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+  
+  .setting-group {
+    margin-bottom: 28px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    
+    h2 {
+      font-size: 17px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .hint {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+  }
+  
+  .setting-item {
+    margin-bottom: 16px;
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    &.checkbox label {
+      display: flex;
+      align-items: center;
+      
+      input {
+        margin-right: 10px;
+        height: 16px;
+        width: 16px;
+      }
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background-color: var(--input-bg);
+      color: var(--text-primary);
+      font-size: 14px;
+      transition: border-color 0.2s ease;
+      
+      &:focus {
+        border-color: var(--accent-color);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+      }
+    }
+    
+    select {
+      padding: 10px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background-color: var(--input-bg);
+      color: var(--text-primary);
+      font-size: 14px;
+      width: 100%;
+      max-width: 300px;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 32px;
+      
+      &:focus {
+        border-color: var(--accent-color);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+      }
+    }
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    
+    &:focus {
+      border-color: var(--accent-color);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+    }
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+    
+    .save-button {
+      background: var(--accent-color);
+      color: white;
+      font-weight: 500;
+      border-radius: 6px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      font-size: 14px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      
+      &:hover {
+        background: var(--accent-hover);
+      }
+      
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    
+    .save-status {
+      color: #4CAF50;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      
+      &.visible {
+        opacity: 1;
+      }
+    }
+  }
+}
