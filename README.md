@@ -17,12 +17,6 @@ PDF Knife is a lightweight browser extension that automatically detects and down
 
 ## Installation
 
-### Chrome Web Store (Recommended)
-
-1. Visit the [Chrome Web Store](https://chrome.google.com/webstore) and search for "PDF Knife"
-2. Click "Add to Chrome"
-3. Confirm the installation
-
 ### Manual Installation (Chrome, Edge, Brave, etc.)
 
 1. Download the latest release ZIP file from [Releases](https://github.com/The-True-Hooha/pdf-knife/releases)
