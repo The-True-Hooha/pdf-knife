@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "PDF Knife",
   "version": "0.0.0",
 
@@ -16,15 +16,16 @@
   "permissions": [
     "activeTab",
     "storage",
-    "storage",
     "downloads",
     "notifications",
-    "contextMenus",
-    "http://*/*",
-    "https://*/*"
+    "contextMenus"
   ],
 
-  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "host_permissions": ["http://*/*", "https://*/*"],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
 
   "__chrome|firefox__author": "thetruehooha",
   "__opera__developer": {
@@ -37,10 +38,10 @@
     }
   },
 
-  "__chrome__minimum_chrome_version": "49",
+  "__chrome__minimum_chrome_version": "88",
   "__opera__minimum_opera_version": "36",
 
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "16": "assets/icons/favicon-16.png",
@@ -61,8 +62,7 @@
   },
 
   "background": {
-    "scripts": ["js/background.bundle.js"],
-    "__chrome|opera__persistent": false
+    "service_worker": "js/background.bundle.js"
   },
 
   "content_scripts": [
